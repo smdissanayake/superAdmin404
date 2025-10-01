@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeftIcon, SaveIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from '@inertiajs/react';
 export const AddEmployee = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -28,18 +27,17 @@ export const AddEmployee = () => {
     e.preventDefault();
     // Here you would typically save the employee data
     console.log('Employee data:', formData);
-    // Then navigate back to employees list
-    navigate('/employees');
+    // Then redirect back to employees list (handled server-side when implemented)
   };
   return <div className="min-h-screen bg-gray-50 pb-8">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="flex justify-between items-center px-6 py-4">
           <h1 className="text-2xl font-bold text-gray-800">Add New Employee</h1>
-          <button onClick={() => navigate('/employees')} className="flex items-center text-gray-600 hover:text-gray-800">
+          <Link href="/employees" className="flex items-center text-gray-600 hover:text-gray-800">
             <ArrowLeftIcon size={16} className="mr-1" />
             Back to Employees
-          </button>
+          </Link>
         </div>
       </header>
       {/* Form Content */}
@@ -101,9 +99,9 @@ export const AddEmployee = () => {
               </div>
             </div>
             <div className="mt-8 flex justify-end space-x-4">
-              <button type="button" onClick={() => navigate('/employees')} className="px-5 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
+              <Link href="/employees" className="px-5 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
                 Cancel
-              </button>
+              </Link>
               <button type="submit" className="flex items-center px-5 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 focus:outline-none">
                 <SaveIcon size={18} className="mr-2" />
                 Save Employee

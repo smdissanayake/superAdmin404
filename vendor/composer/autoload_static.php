@@ -656,6 +656,7 @@ class ComposerStaticInitdb1a607ff3200db016bc62d7a8dd6399
     );
 
     public static $classMap = array (
+        'App\\Http\\Controllers\\Api\\SellersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/SellersController.php',
         'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
@@ -665,6 +666,7 @@ class ComposerStaticInitdb1a607ff3200db016bc62d7a8dd6399
         'App\\Http\\Requests\\Settings\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Settings/ProfileUpdateRequest.php',
         'App\\Http\\Requests\\Settings\\TwoFactorAuthenticationRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Settings/TwoFactorAuthenticationRequest.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\sellers' => __DIR__ . '/../..' . '/app/Models/sellers.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\FortifyServiceProvider' => __DIR__ . '/../..' . '/app/Providers/FortifyServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
