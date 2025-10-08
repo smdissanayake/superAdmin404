@@ -15,10 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('mobile');
+            $table->string('mobile')->unique();
+            $table->string('password');
             $table->string('position');
             $table->string('village');
             $table->string('distric');
+            $table->string('status')->default('active');
+            $table->string('referd')->nullable();
             $table->timestamps();
         });
     }
