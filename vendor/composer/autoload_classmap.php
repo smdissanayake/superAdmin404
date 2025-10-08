@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Http\\Controllers\\Api\\SellersController' => $baseDir . '/app/Http/Controllers/Api/SellersController.php',
     'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
@@ -15,6 +16,7 @@ return array(
     'App\\Http\\Requests\\Settings\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/Settings/ProfileUpdateRequest.php',
     'App\\Http\\Requests\\Settings\\TwoFactorAuthenticationRequest' => $baseDir . '/app/Http/Requests/Settings/TwoFactorAuthenticationRequest.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\sellers' => $baseDir . '/app/Models/sellers.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\FortifyServiceProvider' => $baseDir . '/app/Providers/FortifyServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

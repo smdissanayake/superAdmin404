@@ -16,6 +16,10 @@ Route::middleware(['auth'])->group(function () {
         return Inertia::render('Employees');
     })->name('employees');
 
+    Route::get('/add-employee', function () {
+        return Inertia::render('AddEmployee');
+    })->name('employees.create');
+
     Route::get('/reports', function () {
         return Inertia::render('Reports');
     })->name('reports');
@@ -30,4 +34,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
-require __DIR__.'/api.php';
+

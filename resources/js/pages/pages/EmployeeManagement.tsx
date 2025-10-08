@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { EmployeeTable } from '../EmployeeTable';
 import { EmployeeFilter } from '../EmployeeFilter';
 import { PlusIcon, FilterIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from '@inertiajs/react';
 export const EmployeeManagement = () => {
-  const navigate = useNavigate();
   const [filterOpen, setFilterOpen] = useState(false);
   const [selectedDepartments, setSelectedDepartments] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -35,10 +34,10 @@ export const EmployeeManagement = () => {
             <button onClick={toggleFilter} className="p-2 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 md:hidden">
               <FilterIcon size={20} />
             </button>
-            <button onClick={() => navigate('/add-employee')} className="flex items-center px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition-colors">
+            <Link href="/add-employee" className="flex items-center px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition-colors">
               <PlusIcon size={18} className="mr-2" />
               Add Employee
-            </button>
+            </Link>
           </div>
         </div>
       </header>

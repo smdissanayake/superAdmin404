@@ -1,10 +1,16 @@
 <?php
 
+use App\Http\Controllers\Api\SellersController;
+use App\Http\Controllers\ClientsController;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 
-// Allow both POST (JSON body) and GET (query param) for easier testing
-Route::post('/searchuser', [UserController::class, 'searchUser']);
-Route::get('/searchuser', [UserController::class, 'searchUser']);
+Route::apiResource('sellers',SellersController::class);
+Route::post('/sellers/login', [SellersController::class, 'login']);
+Route::apiResource('clients', ClientsController::class);
+Route::post('/clientsStore', [ClientsController::class, 'store']);
+
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
