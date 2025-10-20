@@ -21,6 +21,12 @@ class ClientResource extends JsonResource
             'mobile'    => $this->mobile,
             'latitude'  => $this->latitude,
             'longitude' => $this->longitude,
+            'seller_id' => $this->seller_id,
+
+                        'seller_name' => $this->whenLoaded('seller')
+                ? trim(($this->seller->firstname ?? '') . ' ' . ($this->seller->lastname ?? '')) ?: null
+                : ($this->seller ? trim(($this->seller->firstname ?? '') . ' ' . ($this->seller->lastname ?? '')) ?: null 
+                : null),
         ];
     }
 }

@@ -3,21 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ClientResource;
+use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ClientsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $clients = Client::all();
-
+        if ($clients->count() > 0) {
+            return ClientResource::collection($clients);
+        } else {
+            return response()->json([
+                'message' => 'No clients found',
+                'data' => []
+            ], 200);
+        }
         // return ClientResource::collection($clients);
-        return response()->json(['message' => 'Client deleted']);
+        // return response()->json(['message' => 'Client deleted']);
     }
 
     /**
@@ -66,7 +72,22 @@ class ClientsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id) {}
+    public function show(string $id)
+    {
+        // Treat the provided id as a seller_id and return all clients for that seller.
+        $clients = Client::where('seller_id', $id)
+            ->with('seller')
+            ->get();
+
+        if ($clients->count() > 0) {
+            return ClientResource::collection($clients);
+        }
+
+        return response()->json([
+            'message' => 'No clients found for the given seller id',
+            'data' => []
+        ], 200);
+    }
 
     /**
      * Update the specified resource in storage.
